@@ -1,0 +1,3 @@
+PyPDF2
+fuzzywuzzy
+python-Levenshtein

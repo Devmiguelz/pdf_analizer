@@ -1,0 +1,11 @@
+# Ignorar archivos de entorno
+.env
+
+# Ignorar entorno virtual
+venv/
+
+# Modelos entrenados
+*.pt
+
+__pycache__/
+*.pyc

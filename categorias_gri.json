@@ -1,0 +1,382 @@
+{
+  "AMBIENTAL": [
+    {
+      "indicador": "GRI 305-1/2/3",
+      "nombre": "Emisiones GEI",
+      "categoria": "emisiones",
+      "unidades": [
+        "tCO2e",
+        "tCO2-eq",
+        "CO2",
+        "toneladas",
+        "kg CO2"
+      ],
+      "variantes": [
+        "emisiones",
+        "GEI",
+        "gases efecto invernadero",
+        "huella carbono",
+        "carbono",
+        "CO2",
+        "CO²",
+        "dióxido de carbono",
+        "alcance 1",
+        "alcance 2",
+        "alcance 3",
+        "scope 1",
+        "scope 2",
+        "scope 3"
+      ],
+      "contexto": [
+        "inventario",
+        "reporte",
+        "reducción",
+        "compensación",
+        "neutralidad",
+        "meta net zero"
+      ]
+    },
+    {
+      "indicador": "GRI 302-4",
+      "nombre": "Reducción consumo energético",
+      "categoria": "energia",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "kWh",
+        "MWh",
+        "GJ"
+      ],
+      "variantes": [
+        "energía",
+        "consumo energético",
+        "reducción energía",
+        "eficiencia energética",
+        "ecoeficiencia",
+        "electricidad",
+        "renovable",
+        "solar",
+        "eólica",
+        "kWh",
+        "megavatios"
+      ],
+      "contexto": [
+        "reducción anual",
+        "ahorro",
+        "eficiencia",
+        "renovable",
+        "limpia"
+      ]
+    },
+    {
+      "indicador": "GRI 303-1",
+      "nombre": "Consumo de agua",
+      "categoria": "agua",
+      "unidades": [
+        "m³",
+        "m3",
+        "litros",
+        "metros cúbicos",
+        "galones"
+      ],
+      "variantes": [
+        "agua",
+        "consumo hídrico",
+        "recursos hídricos",
+        "agua residual",
+        "tratamiento agua",
+        "captación",
+        "descarga",
+        "reutilización",
+        "metros cúbicos",
+        "litros"
+      ],
+      "contexto": [
+        "reducción",
+        "captación",
+        "descarga",
+        "reutilización",
+        "estrés hídrico"
+      ]
+    },
+    {
+      "indicador": "GRI 306-1",
+      "nombre": "Gestión de residuos",
+      "categoria": "residuos",
+      "unidades": [
+        "kg",
+        "toneladas",
+        "t",
+        "%",
+        "porcentaje"
+      ],
+      "variantes": [
+        "residuos",
+        "desechos",
+        "reciclaje",
+        "valorización",
+        "aprovechamiento",
+        "residuos peligrosos",
+        "residuos no peligrosos",
+        "economía circular",
+        "reutilización"
+      ],
+      "contexto": [
+        "reciclados",
+        "valorizados",
+        "disposición final",
+        "relleno sanitario",
+        "compostaje"
+      ]
+    }
+  ],
+  "SOCIAL": [
+    {
+      "indicador": "GRI 401-1",
+      "nombre": "Empleo",
+      "categoria": "colaboradores",
+      "unidades": [
+        "%",
+        "número",
+        "cantidad",
+        "empleados"
+      ],
+      "variantes": [
+        "empleado",
+        "empleados",
+        "colaborador",
+        "colaboradores",
+        "trabajador",
+        "trabajadores",
+        "talento humano",
+        "personal",
+        "plantilla",
+        "contratación",
+        "rotación",
+        "nuevas contrataciones"
+      ],
+      "contexto": [
+        "incremento",
+        "creación empleo",
+        "empleos directos",
+        "permanentes",
+        "temporales",
+        "estrategia laboral"
+      ]
+    },
+    {
+      "indicador": "GRI 403-9",
+      "nombre": "Seguridad y salud",
+      "categoria": "seguridad",
+      "unidades": [
+        "tasa",
+        "número",
+        "accidentes",
+        "horas",
+        "h-h"
+      ],
+      "variantes": [
+        "seguridad",
+        "salud",
+        "SST",
+        "accidentes laborales",
+        "accidentabilidad",
+        "lesiones",
+        "incidentes",
+        "ausentismo",
+        "200.000 horas",
+        "ISO 45001",
+        "certificación"
+      ],
+      "contexto": [
+        "tasa accidentes",
+        "frecuencia",
+        "gravedad",
+        "cero accidentes",
+        "auditoría"
+      ]
+    },
+    {
+      "indicador": "GRI 204-1",
+      "nombre": "Proveedores locales",
+      "categoria": "proveedores",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "gasto"
+      ],
+      "variantes": [
+        "proveedor",
+        "proveedores",
+        "proveedores locales",
+        "compras locales",
+        "cadena suministro",
+        "abastecimiento",
+        "gasto local"
+      ],
+      "contexto": [
+        "compras",
+        "adquisiciones",
+        "desarrollo proveedores",
+        "política formal",
+        "programa desarrollo"
+      ]
+    },
+    {
+      "indicador": "GRI 404-1",
+      "nombre": "Formación y capacitación",
+      "categoria": "formacion",
+      "unidades": [
+        "horas",
+        "h",
+        "horas/empleado",
+        "promedio"
+      ],
+      "variantes": [
+        "formación",
+        "capacitación",
+        "entrenamiento",
+        "desarrollo",
+        "educación",
+        "cursos",
+        "programas formación",
+        "horas formación",
+        "certificación"
+      ],
+      "contexto": [
+        "promedio",
+        "por empleado",
+        "anual",
+        "programa estructurado",
+        "reconocimiento"
+      ]
+    }
+  ],
+  "GOBERNANZA": [
+    {
+      "indicador": "GRI 205",
+      "nombre": "Anticorrupción",
+      "categoria": "anticorrupcion",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "empleados"
+      ],
+      "variantes": [
+        "anticorrupción",
+        "anti-corrupción",
+        "corrupción",
+        "ética",
+        "integridad",
+        "transparencia",
+        "compliance",
+        "cumplimiento",
+        "SARLAFT",
+        "SARAS",
+        "prevención lavado",
+        "conflicto interés",
+        "denuncia",
+        "canal ético"
+      ],
+      "contexto": [
+        "capacitados",
+        "políticas",
+        "evaluación",
+        "riesgos",
+        "código ética"
+      ]
+    },
+    {
+      "indicador": "GRI 206",
+      "nombre": "Ética y cumplimiento",
+      "categoria": "etica",
+      "unidades": [
+        "existencia",
+        "nivel",
+        "auditoría"
+      ],
+      "variantes": [
+        "ética",
+        "código ética",
+        "compliance",
+        "cumplimiento",
+        "políticas",
+        "litigios",
+        "sanciones",
+        "multas",
+        "legal",
+        "normativo",
+        "control interno",
+        "auditoría"
+      ],
+      "contexto": [
+        "política",
+        "capacitación",
+        "monitoreo",
+        "reporte",
+        "sistema robusto"
+      ]
+    },
+    {
+      "indicador": "GRI 405-1",
+      "nombre": "Diversidad órganos gobierno",
+      "categoria": "diversidad",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "mujeres",
+        "minorías"
+      ],
+      "variantes": [
+        "diversidad",
+        "inclusión",
+        "género",
+        "mujeres",
+        "femenino",
+        "minorías",
+        "junta directiva",
+        "alta gerencia",
+        "liderazgo",
+        "equidad",
+        "paridad"
+      ],
+      "contexto": [
+        "juntas directivas",
+        "gerencia",
+        "política",
+        "programa",
+        "implementada"
+      ]
+    },
+    {
+      "indicador": "GRI 207",
+      "nombre": "Transparencia financiera",
+      "categoria": "transparencia",
+      "unidades": [
+        "nivel",
+        "reporte",
+        "auditoría"
+      ],
+      "variantes": [
+        "transparencia",
+        "divulgación financiera",
+        "información financiera",
+        "fiscal",
+        "tributario",
+        "auditoría",
+        "auditoría externa",
+        "informe integrado",
+        "reporte anual",
+        "estados financieros"
+      ],
+      "contexto": [
+        "divulgación",
+        "auditoría",
+        "informes",
+        "completos",
+        "integrados",
+        "externos"
+      ]
+    }
+  ]
+}
