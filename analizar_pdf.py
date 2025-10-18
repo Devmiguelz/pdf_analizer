@@ -301,86 +301,87 @@ class PDFSearcher:
         """Exporta un reporte visual en HTML"""
         output_file = f"reporte_{Path(pdf_name).stem}.html"
         
-        html = """
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Reporte de Análisis GRI</title>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
-                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
-                h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-                h2 { color: #34495e; margin-top: 30px; }
-                .seccion { background: #ecf0f1; padding: 15px; margin: 15px 0; border-radius: 5px; }
-                .categoria { background: white; padding: 15px; margin: 10px 0; border-left: 4px solid #3498db; }
-                .encontrado { border-left-color: #27ae60; }
-                .no-encontrado { border-left-color: #e74c3c; }
-                .badge { display: inline-block; padding: 3px 8px; margin: 2px; background: #3498db; color: white; border-radius: 3px; font-size: 12px; }
-                .paginas { color: #e67e22; font-weight: bold; }
-                .fragmento { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 3px; font-size: 14px; font-style: italic; }
-                .resumen { background: #2c3e50; color: white; padding: 20px; margin-top: 30px; border-radius: 5px; }
-                .stat { display: inline-block; margin: 10px 20px; }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <h1>📊 Reporte de Análisis GRI</h1>
-                <p><strong>Documento:</strong> {}</p>
-        """.format(pdf_name)
+        # Construir el HTML en partes
+        html_header = """<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte de Análisis GRI</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+            .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+            h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+            h2 { color: #34495e; margin-top: 30px; }
+            .seccion { background: #ecf0f1; padding: 15px; margin: 15px 0; border-radius: 5px; }
+            .categoria { background: white; padding: 15px; margin: 10px 0; border-left: 4px solid #3498db; }
+            .encontrado { border-left-color: #27ae60; }
+            .no-encontrado { border-left-color: #e74c3c; }
+            .badge { display: inline-block; padding: 3px 8px; margin: 2px; background: #3498db; color: white; border-radius: 3px; font-size: 12px; }
+            .paginas { color: #e67e22; font-weight: bold; }
+            .fragmento { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 3px; font-size: 14px; font-style: italic; }
+            .resumen { background: #2c3e50; color: white; padding: 20px; margin-top: 30px; border-radius: 5px; }
+            .stat { display: inline-block; margin: 10px 20px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📊 Reporte de Análisis GRI</h1>
+    """
+        
+        html = html_header + f"        <p><strong>Documento:</strong> {pdf_name}</p>\n"
         
         for seccion, categorias in resultados.items():
-            html += f'<div class="seccion"><h2>📁 {seccion}</h2>'
+            html += f'        <div class="seccion"><h2>📁 {seccion}</h2>\n'
             
             for categoria, info in categorias.items():
                 clase = "encontrado" if info['encontrado'] else "no-encontrado"
                 icono = "✅" if info['encontrado'] else "❌"
                 
-                html += f'<div class="categoria {clase}">'
-                html += f'<h3>{icono} {info["indicador"]} - {info["nombre"]}</h3>'
-                html += f'<p><strong>Categoría:</strong> {categoria}</p>'
+                html += f'            <div class="categoria {clase}">\n'
+                html += f'                <h3>{icono} {info["indicador"]} - {info["nombre"]}</h3>\n'
+                html += f'                <p><strong>Categoría:</strong> {categoria}</p>\n'
                 
                 if info['encontrado']:
                     paginas = sorted(set(info['paginas']))
-                    html += f'<p class="paginas">📄 Páginas: {", ".join(map(str, paginas))}</p>'
+                    html += f'                <p class="paginas">📄 Páginas: {", ".join(map(str, paginas))}</p>\n'
                     
                     variantes = set([v[0] for v in info['coincidencias']])
-                    html += '<p><strong>Variantes encontradas:</strong><br>'
+                    html += '                <p><strong>Variantes encontradas:</strong><br>\n'
                     for v in variantes:
-                        html += f'<span class="badge">{v}</span>'
-                    html += '</p>'
+                        html += f'                    <span class="badge">{v}</span>\n'
+                    html += '                </p>\n'
                     
                     if info['unidades_encontradas']:
                         unidades = set(info['unidades_encontradas'])
-                        html += '<p><strong>Unidades:</strong><br>'
+                        html += '                <p><strong>Unidades:</strong><br>\n'
                         for u in unidades:
-                            html += f'<span class="badge">{u}</span>'
-                        html += '</p>'
+                            html += f'                    <span class="badge">{u}</span>\n'
+                        html += '                </p>\n'
                     
                     if info['fragmentos']:
-                        html += '<p><strong>Ejemplo de contexto:</strong></p>'
+                        html += '                <p><strong>Ejemplo de contexto:</strong></p>\n'
                         fragmento = info['fragmentos'][0]
-                        html += f'<div class="fragmento">Página {fragmento["pagina"]}: {fragmento["texto"][:300]}...</div>'
+                        texto_fragmento = fragmento["texto"][:300].replace('<', '&lt;').replace('>', '&gt;')
+                        html += f'                <div class="fragmento">Página {fragmento["pagina"]}: {texto_fragmento}...</div>\n'
                 else:
-                    html += '<p>⚠️ No se encontró información para este indicador</p>'
+                    html += '                <p>⚠️ No se encontró información para este indicador</p>\n'
                 
-                html += '</div>'
+                html += '            </div>\n'
             
-            html += '</div>'
+            html += '        </div>\n'
         
         # Resumen
-        html += '<div class="resumen"><h2>📈 Resumen Global</h2>'
         total_encontrados = sum(1 for cat in sum([list(c.values()) for c in resultados.values()], []) if cat['encontrado'])
         total_categorias = sum(len(c) for c in resultados.values())
         porcentaje = (total_encontrados / total_categorias * 100) if total_categorias > 0 else 0
         
-        html += f'<div class="stat">Total indicadores: {total_categorias}</div>'
-        html += f'<div class="stat">Encontrados: {total_encontrados}</div>'
-        html += f'<div class="stat">Cobertura: {porcentaje:.1f}%</div>'
-        html += '</div>'
-        
-        html += '</div></body></html>'
+        html += '        <div class="resumen"><h2>📈 Resumen Global</h2>\n'
+        html += f'            <div class="stat">Total indicadores: {total_categorias}</div>\n'
+        html += f'            <div class="stat">Encontrados: {total_encontrados}</div>\n'
+        html += f'            <div class="stat">Cobertura: {porcentaje:.1f}%</div>\n'
+        html += '        </div>\n'
+        html += '    </div>\n</body>\n</html>'
         
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(html)
