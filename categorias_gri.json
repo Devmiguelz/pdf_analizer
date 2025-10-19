@@ -153,21 +153,20 @@
         "seguridad",
         "salud",
         "SST",
-        "accidentes laborales",
+        "accidentes",
         "accidentabilidad",
         "lesiones",
         "incidentes",
-        "ausentismo",
-        "200.000 horas",
-        "ISO 45001",
-        "certificación"
+        "ISO 45001"
       ],
       "contexto": [
         "tasa accidentes",
         "frecuencia",
+        "SST",
         "gravedad",
         "cero accidentes",
-        "auditoría"
+        "auditoría",
+        "salud"
       ]
     },
     {
@@ -191,9 +190,8 @@
       "contexto": [
         "compras",
         "adquisiciones",
-        "desarrollo proveedores",
-        "política formal",
-        "programa desarrollo"
+        "proveedores locales"
+        
       ]
     },
     {
@@ -204,9 +202,12 @@
         "horas",
         "h",
         "horas/empleado",
-        "promedio"
+        "promedio",
+        "hrs"
       ],
       "variantes": [
+        "hrs",
+        "horas",
         "formación",
         "capacitación",
         "entrenamiento",
@@ -214,15 +215,15 @@
         "educación",
         "cursos",
         "programas formación",
-        "horas formación",
+        "horas de formación",
         "certificación"
       ],
       "contexto": [
-        "promedio",
-        "por empleado",
-        "anual",
-        "programa estructurado",
-        "reconocimiento"
+        "formación",
+        "capacitación",
+        "entrenamiento",
+        "desarrollo",
+        "capacitaciones"
       ]
     }
   ],
@@ -238,6 +239,8 @@
       ],
       "variantes": [
         "anticorrupción",
+        "capacitación",
+        "formación",
         "anti-corrupción",
         "corrupción",
         "ética",
@@ -254,10 +257,13 @@
       ],
       "contexto": [
         "capacitados",
+        "capacitación",
+        "anticorrupción",
         "políticas",
         "evaluación",
         "riesgos",
-        "código ética"
+        "código ética",
+          "ética"
       ]
     },
     {
