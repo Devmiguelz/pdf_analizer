@@ -13,10 +13,6 @@
       ],
       "variantes": [
         "emisiones",
-        "GEI",
-        "gases efecto invernadero",
-        "huella carbono",
-        "carbono",
         "CO2",
         "CO²",
         "dióxido de carbono",
@@ -28,14 +24,14 @@
         "scope 3"
       ],
       "contexto": [
-        "inventario",
-        "reporte",
-        "reducción",
-        "compensación",
-        "neutralidad",
-        "meta net zero"
+        "Co2",
+        "emision",
+        "alcance",
+        "scope",
+        "zero"
       ]
     },
+
     {
       "indicador": "GRI 302-4",
       "nombre": "Reducción consumo energético",
@@ -49,54 +45,30 @@
       ],
       "variantes": [
         "energía",
-        "consumo energético",
-        "reducción energía",
-        "eficiencia energética",
-        "ecoeficiencia",
-        "electricidad",
-        "renovable",
-        "solar",
-        "eólica",
         "kWh",
         "megavatios"
       ],
       "contexto": [
-        "reducción anual",
-        "ahorro",
-        "eficiencia",
-        "renovable",
-        "limpia"
+        "consumo",
+        "energía",
+        "kwh"
+
       ]
     },
     {
       "indicador": "GRI 303-1",
       "nombre": "Consumo de agua",
       "categoria": "agua",
-      "unidades": [
-        "m³",
-        "m3",
-        "litros",
-        "metros cúbicos",
-        "galones"
-      ],
+      "unidades": [ "m3", "m³", "m^3", "metros cúbicos" ],
       "variantes": [
         "agua",
-        "consumo hídrico",
-        "recursos hídricos",
-        "agua residual",
-        "tratamiento agua",
-        "captación",
-        "descarga",
-        "reutilización",
-        "metros cúbicos",
-        "litros"
+        "m3"
+
       ],
       "contexto": [
-        "reducción",
-        "captación",
-        "descarga",
-        "reutilización",
-        "estrés hídrico"
+        "agua",
+        "m3",
+        "consumo"
       ]
     },
     {
@@ -106,6 +78,7 @@
       "unidades": [
         "kg",
         "toneladas",
+        "ton",
         "t",
         "%",
         "porcentaje"
@@ -116,17 +89,18 @@
         "reciclaje",
         "valorización",
         "aprovechamiento",
+        "aprovechable",
         "residuos peligrosos",
         "residuos no peligrosos",
         "economía circular",
         "reutilización"
       ],
       "contexto": [
-        "reciclados",
-        "valorizados",
-        "disposición final",
-        "relleno sanitario",
-        "compostaje"
+        "residuos",
+        "aprovechamiento",
+        "aprovechable",
+        "reutilizable",
+        "sólidos"
       ]
     }
   ],
@@ -142,26 +116,26 @@
         "empleados"
       ],
       "variantes": [
-        "empleado",
-        "empleados",
-        "colaborador",
-        "colaboradores",
-        "trabajador",
-        "trabajadores",
-        "talento humano",
-        "personal",
-        "plantilla",
-        "contratación",
         "rotación",
-        "nuevas contrataciones"
+        "empleos",
+        "empleo",
+        "nuevas contrataciones",
+        "total",
+        "rotación",
+        "contratación",
+        "contratados"
       ],
       "contexto": [
         "incremento",
+        "empleabilidad",
+        "empleos",
         "creación empleo",
         "empleos directos",
         "permanentes",
         "temporales",
-        "estrategia laboral"
+        "estrategia laboral",
+        "indice",
+        "rotación"
       ]
     },
     {

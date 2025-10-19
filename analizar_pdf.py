@@ -86,28 +86,21 @@ class PDFSearcher:
     
     def buscar_en_texto(self, texto, variantes):
         """
-        Busca variantes en el texto usando coincidencia fuzzy
-        
-        Returns:
-            list: [(variante_encontrada, score)]
+        Busca variantes exactas (palabras o frases) en el texto completo.
+        Retorna lista de coincidencias encontradas con la variante exacta.
         """
-        encontrados = []
-        
+        if not isinstance(texto, str):
+            return []
+
+        texto = texto.lower()
+        coincidencias = []
+
         for variante in variantes:
-            # Búsqueda exacta
             if variante.lower() in texto:
-                encontrados.append((variante, 100))
-            else:
-                # Búsqueda fuzzy (para palabras cortadas o con errores)
-                palabras_texto = texto.split()
-                for palabra in palabras_texto:
-                    score = fuzz.partial_ratio(variante.lower(), palabra)
-                    if score > 80:  # Umbral de similitud
-                        encontrados.append((variante, score))
-                        break
-        
-        return encontrados
-    
+                coincidencias.append((variante, texto.find(variante.lower())))
+
+        return coincidencias
+
     def buscar_unidades(self, texto, unidades):
         """Busca unidades de medida en el texto"""
         encontradas = []
@@ -117,14 +110,34 @@ class PDFSearcher:
         return encontradas
     
     def buscar_contexto(self, texto, palabras_contexto):
-        """Busca palabras de contexto en el texto"""
-        encontradas = []
+        """
+        Devuelve True solo si el texto contiene 2 o más variantes distintas Y 
+        coinciden como palabras completas o fragmentos significativos (>=4 letras).
+        """
+
+        if not isinstance(texto, str):
+            return False
+
+        texto = texto.lower()
+        encontradas = set()
+
         for palabra in palabras_contexto:
-            if palabra.lower() in texto:
-                encontradas.append(palabra)
-        return encontradas
-    
+            palabra = palabra.lower()
+
+            # ✅ Solo contar si la palabra tiene al menos 4 letras o aparece como palabra completa
+            if len(palabra) >= 4:
+                if palabra in texto:
+                    encontradas.add(palabra)
+            else:
+                # ✅ Para palabras cortas como "uso" o "agua", buscar como palabra completa
+                import re
+                if re.search(rf"\b{palabra}\b", texto):
+                    encontradas.add(palabra)
+
+        return len(encontradas) >= 2
+
     def extraer_fragmento(self, texto, variante, contexto=100):
+
         """Extrae un fragmento de texto alrededor de la variante encontrada"""
         texto_lower = texto.lower()
         variante_lower = variante.lower()
@@ -156,7 +169,7 @@ class PDFSearcher:
         print("\n" + "="*60)
         print("ANALIZANDO DOCUMENTO...")
         print("="*60)
-        
+      
         for seccion, categorias in self.categorias.items():
             resultados[seccion] = {}
             
@@ -168,6 +181,7 @@ class PDFSearcher:
                 unidades = categoria_info.get('unidades', [])
                 contexto = categoria_info.get('contexto', [])
                 
+              
                 resultados[seccion][categoria] = {
                     'indicador': indicador,
                     'nombre': nombre,
@@ -179,32 +193,40 @@ class PDFSearcher:
                     'fragmentos': []
                 }
                 
-                # Buscar en cada página
                 for num_pagina, texto in texto_por_pagina.items():
                     coincidencias = self.buscar_en_texto(texto, variantes)
+
+                    # ✅ Filtrar solo variantes únicas
+                    variantes_unicas = list({v[0].lower() for v in coincidencias})
+
+                    # ✅ Aceptar solo si hay 2 o más variantes distintas
+                    if len(variantes_unicas) < 2:
+                        continue  # ❌ Saltar esta página por insuficiente contexto
+
+                    # ✅ Registrar solo las variantes únicas (evita duplicados)
+                    resultados[seccion][categoria]['encontrado'] = True
+                    resultados[seccion][categoria]['paginas'].append(num_pagina)
+                    resultados[seccion][categoria]['coincidencias'].extend(variantes_unicas)
                     
-                    if coincidencias:
-                        resultados[seccion][categoria]['encontrado'] = True
-                        resultados[seccion][categoria]['paginas'].append(num_pagina)
-                        resultados[seccion][categoria]['coincidencias'].extend(coincidencias)
-                        
-                        # Buscar unidades
-                        unidades_en_pagina = self.buscar_unidades(texto, unidades)
-                        resultados[seccion][categoria]['unidades_encontradas'].extend(unidades_en_pagina)
-                        
-                        # Buscar contexto
-                        contexto_en_pagina = self.buscar_contexto(texto, contexto)
-                        resultados[seccion][categoria]['contexto_encontrado'].extend(contexto_en_pagina)
-                        
-                        # Extraer fragmento relevante
-                        variante_principal = coincidencias[0][0]
-                        fragmento = self.extraer_fragmento(texto, variante_principal)
-                        if fragmento:
-                            resultados[seccion][categoria]['fragmentos'].append({
-                                'pagina': num_pagina,
-                                'texto': fragmento
-                            })
-        
+            
+                    # Buscar unidades
+                    unidades_en_pagina = self.buscar_unidades(texto, unidades)
+                    resultados[seccion][categoria]['unidades_encontradas'].extend(unidades_en_pagina)
+
+                    # Registrar si cumple contexto múltiple
+                    contexto_en_pagina = self.buscar_contexto(texto, categoria_info["contexto"])
+                   
+                   
+                    if contexto_en_pagina:
+                        resultados[seccion][categoria]['contexto_encontrado'].append(f"Página {num_pagina}")
+                    # Extraer fragmento (usar la primera variante como punto de anclaje)
+                    fragmento = self.extraer_fragmento(texto, variantes_unicas[0])
+                    if fragmento:
+                        resultados[seccion][categoria]['fragmentos'].append({
+                            "pagina": num_pagina,
+                            "texto": fragmento
+                        })
+
         return resultados
     
     def generar_reporte(self, resultados, pdf_name):
@@ -213,7 +235,7 @@ class PDFSearcher:
         print("\n" + "="*60)
         print(f"REPORTE DE ANÁLISIS: {pdf_name}")
         print("="*60)
-        
+        print("Variantes encontradas cortadas")
         for seccion, categorias in resultados.items():
             print(f"\n{'─'*60}")
             print(f"📁 SECCIÓN: {seccion}")
@@ -222,7 +244,11 @@ class PDFSearcher:
             for categoria, info in categorias.items():
                 if info['encontrado']:
                     paginas_unicas = sorted(set(info['paginas']))
-                    variantes_encontradas = set([v[0] for v in info['coincidencias']])
+                    # variantes = set(info['coincidencias'])
+                    # print(f"   🔍 Variantes encontradas nuevas: {', '.join(variantes)}")
+                    # variantes_encontradas = set([v[0] for v in info['coincidencias']])
+                    variantes_encontradas =set(info['coincidencias'])
+                    
                     unidades_unicas = set(info['unidades_encontradas'])
                     contexto_unico = set(info['contexto_encontrado'])
                     
@@ -346,10 +372,13 @@ class PDFSearcher:
                     paginas = sorted(set(info['paginas']))
                     html += f'                <p class="paginas">📄 Páginas: {", ".join(map(str, paginas))}</p>\n'
                     
-                    variantes = set([v[0] for v in info['coincidencias']])
+                    variantes = set(info['coincidencias'])
+
                     html += '                <p><strong>Variantes encontradas:</strong><br>\n'
+
                     for v in variantes:
                         html += f'                    <span class="badge">{v}</span>\n'
+
                     html += '                </p>\n'
                     
                     if info['unidades_encontradas']:
