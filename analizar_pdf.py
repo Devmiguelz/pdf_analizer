@@ -5,6 +5,7 @@ from pathlib import Path
 from collections import defaultdict
 import PyPDF2
 from fuzzywuzzy import fuzz
+from service.openai import analizar_tendencia_categoria
 
 class PDFSearcher:
     def __init__(self, json_path, pdf_folder):
@@ -136,7 +137,7 @@ class PDFSearcher:
 
         return len(encontradas) >= 2
 
-    def extraer_fragmento(self, texto, variante, contexto=100):
+    def extraer_fragmento(self, texto, variante, contexto=400):
 
         """Extrae un fragmento de texto alrededor de la variante encontrada"""
         texto_lower = texto.lower()
@@ -227,6 +228,13 @@ class PDFSearcher:
                             "texto": fragmento
                         })
 
+                        analisis = analizar_tendencia_categoria(fragmento, categoria)
+
+                        print(f"\nAnálisis OpenAI para {categoria} en página {num_pagina}:")
+                        print(json.dumps(analisis, indent=2, ensure_ascii=False))
+
+                        resultados[seccion][categoria]['analisis_openai'] = analisis
+
         return resultados
     
     def generar_reporte(self, resultados, pdf_name):
@@ -267,7 +275,19 @@ class PDFSearcher:
                     if info['fragmentos']:
                         primer_fragmento = info['fragmentos'][0]
                         print(f"\n   📝 Ejemplo (pág. {primer_fragmento['pagina']}):")
-                        print(f"      {primer_fragmento['texto'][:200]}...")
+                        print(f"      {primer_fragmento['texto'][:500]}...")
+
+                    analisis = info.get("analisis_openai")
+                    if analisis:
+                        print(f"\n   🔍 Análisis automático (OpenAI):")
+                        if analisis.get("anio_inicial") and analisis.get("anio_final"):
+                            print(f"      📅 Periodo: {analisis['anio_inicial']} → {analisis['anio_final']}")
+                        if analisis.get("valor_inicial") and analisis.get("valor_final"):
+                            print(f"      📊 Valores: {analisis['valor_inicial']:,} → {analisis['valor_final']:,}")
+                        if analisis.get("variacion") is not None:
+                            print(f"      📈 Variación: {analisis['variacion']}% ({analisis['tipo_cambio']})")
+                        if analisis.get("unidad"):
+                            print(f"      ⚙️ Unidad detectada: {analisis['unidad']}")
                         
                 else:
                     print(f"\n❌ {info['indicador']} - {info['nombre'].upper()}")
@@ -391,8 +411,27 @@ class PDFSearcher:
                     if info['fragmentos']:
                         html += '                <p><strong>Ejemplo de contexto:</strong></p>\n'
                         fragmento = info['fragmentos'][0]
-                        texto_fragmento = fragmento["texto"][:300].replace('<', '&lt;').replace('>', '&gt;')
+                        texto_fragmento = fragmento["texto"][:800].replace('<', '&lt;').replace('>', '&gt;')
                         html += f'                <div class="fragmento">Página {fragmento["pagina"]}: {texto_fragmento}...</div>\n'
+
+                    # Mostrar análisis OpenAI si existe
+                    analisis = info.get("analisis_openai")
+                    if analisis:
+                        html += '                <p><strong>🔍 Análisis automático (OpenAI):</strong></p>\n'
+                        html += '                <div class="analisis">\n'
+
+                        # Mostrar cada campo si no es None
+                        if analisis.get("anio_inicial") and analisis.get("anio_final"):
+                            html += f'                    <p>📅 Periodo: {analisis["anio_inicial"]} → {analisis["anio_final"]}</p>\n'
+                        if analisis.get("valor_inicial") and analisis.get("valor_final"):
+                            html += f'                    <p>📊 Valores: {analisis["valor_inicial"]:,} → {analisis["valor_final"]:,}</p>\n'
+                        if analisis.get("variacion") is not None:
+                            html += f'                    <p>📈 Variación: {analisis["variacion"]}% ({analisis["tipo_cambio"]})</p>\n'
+                        if analisis.get("unidad"):
+                            html += f'                    <p>⚙️ Unidad detectada: {analisis["unidad"]}</p>\n'
+                        
+                        html += '                </div>\n'
+
                 else:
                     html += '                <p>⚠️ No se encontró información para este indicador</p>\n'
                 
