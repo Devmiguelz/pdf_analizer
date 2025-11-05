@@ -1,0 +1,106 @@
+{
+  "AMBIENTAL": {
+    "emisiones": {
+      "indicador": "Emisiones GEI (GRI 305 -1/2/3)",
+      "nombre": "Emisiones GEI",
+      "encontrado": true,
+      "paginas": [
+        101,
+        126,
+        128,
+        132,
+        133,
+        249
+      ],
+      "variantes_encontradas": [
+        "co2",
+        "alcance 2",
+        "emisiones",
+        "co²",
+        "alcance 3",
+        "alcance 1"
+      ],
+      "unidades_encontradas": [
+        "toneladas",
+        "CO2"
+      ],
+      "contexto_encontrado": [
+        "Página 249",
+        "Página 132",
+        "Página 126",
+        "Página 101",
+        "Página 133",
+        "Página 128"
+      ],
+      "contexto": "• 131 2015 2016 2017 2018 2019 2020 co² emisiones directas (alcance 1) 18.897 17.534 16.814 15.025 12.036 12.689 co² emisiones indirectas (alcance 2) 35.463 36.436 36.153 35.499 18.530 15.317 co² totales -toneladas- 54.360 53.970 52.967 50.524 30.566 28.006 la compañía acordó con dos aliados la compra de certificados de energía renovable hasta 2021, los cuales garantizaron el origen ambientalmente responsable del 58% del total de la",
+      "numero_menciones": 6
+    },
+    "energia": {
+      "indicador": "Reducción de consumo energético (GRI 302-4)",
+      "nombre": "Reducción consumo energético",
+      "encontrado": true,
+      "paginas": [
+        129
+      ],
+      "variantes_encontradas": [
+        "kwh",
+        "energía"
+      ],
+      "unidades_encontradas": [
+        "kWh",
+        "%"
+      ],
+      "contexto_encontrado": [
+        "Página 129"
+      ],
+      "contexto": "a implementación de proyecto de energías alternativas y más limpias. en 2020, gracias a las iniciativas de eficiencia energética y disminución de combustible se lograron ahorrar cerca de cop 5.000 millones. algunas iniciativas para destacar son: zapagado de plataformas y equipos asociados a generaciones tecnológicas anteriores (2g) que permitieron eficiencias por más de 7 millones de kwh/año. zexpansión y modernización equipos de fuerza (rectificadores), aumentando su nivel de eficiencia y alcanzando una disminución de consumo de energía de 125 mil kwh/año. zimplementación de sistemas fotovoltaicos en centrales técnicas con potencial de alto consumo eléctrico: delicias en barranquilla, toberín en bogotá y buitrera en cali, los cuales generaron energía solar por 98.37",
+      "numero_menciones": 1
+    },
+    "agua": {
+      "indicador": "Consumo de agua (GRI 303-1)",
+      "nombre": "Consumo de agua",
+      "encontrado": true,
+      "paginas": [
+        135
+      ],
+      "variantes_encontradas": [
+        "m3",
+        "agua"
+      ],
+      "unidades_encontradas": [
+        "m3"
+      ],
+      "contexto_encontrado": [
+        "Página 135"
+      ],
+      "contexto": "agua (gri 303-5) si bien el consumo de agua de la operación de telefónica movistar es bajo y guarda relación principalmente con el uso sanitario, y en menor medida con los sistemas de climatización de equipos, se ha implementado una estrategia de consumo responsable que busca eficiencias y la reducción del consumo de este recurso. en 2020, el consumo de agua en la compañía fue de 115.903 m3, lo que representa una reducción del 30,7% con respecto a 2019. esta reducción se debe, entre otras cosas a que en el marco de la pandemia la organización emitió la política de trabajo desde casa para los colaboradores, por lo cual la asistencia a las sedes se redujo. ahora bien, este resultado también se debe a las acciones emprendidas por el área administrativa en la detección y contr",
+      "numero_menciones": 1
+    },
+    "residuos": {
+      "indicador": "Gestión de residuos (GRI 306-1)",
+      "nombre": "Gestión de residuos",
+      "encontrado": true,
+      "paginas": [
+        134
+      ],
+      "variantes_encontradas": [
+        "reutilización",
+        "residuos peligrosos",
+        "aprovechamiento",
+        "reciclaje",
+        "residuos"
+      ],
+      "unidades_encontradas": [
+        "toneladas",
+        "t",
+        "ton",
+        "%"
+      ],
+      "contexto_encontrado": [
+        "Página 134"
+      ],
+      "contexto": "informe gestión responsable 2020 • 132si bien la gestión de los residuos depende de la autorización generada en las licencias ambientales de los gestores que la apoyan, la compañía tiene una cadena de prioridad de manejo de residuos, donde el primer tratamiento debe estar enfocado en la reutilización, reciclaje o aprovechamiento de los mismos. en los casos en los cuales por acceso a la zona, tipología o características de los residuos no se pueda implementar esta medida, se optará por la utilización de los métodos de depósito en celda de seguridad y/o vertederos e incineración. gracias a esto, se han identificado y evaluado las empresas (gestores) que cumplen con todos los requerimi",
+      "numero_menciones": 1
+    }
+  }
+}
