@@ -1,0 +1,20 @@
+{
+  "AMBIENTAL": {
+    "emisiones": 2,
+    "energia": 2,
+    "agua": 2,
+    "residuos": 2
+  },
+  "SOCIAL": {
+    "colaboradores": 2,
+    "seguridad": 3,
+    "proveedores": 3,
+    "formacion": 6
+  },
+  "GOBERNANZA": {
+    "anticorrupcion": 7,
+    "etica": 5,
+    "diversidad": 3,
+    "transparencia": 3
+  }
+}

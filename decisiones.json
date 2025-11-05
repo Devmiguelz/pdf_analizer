@@ -1,0 +1,12 @@
+{
+  "AMBIENTAL": {
+    "emisiones": 5
+  },
+  "SOCIAL": {
+    "proveedores": 6,
+    "colaboradores": 4
+  },
+  "GOBERNANZA": {
+    "transparencia": 1
+  }
+}

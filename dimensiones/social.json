@@ -1,0 +1,138 @@
+{
+ 
+  "SOCIAL": [
+    {
+      "indicador": "Empleo (GRI 401-1)",
+      "nombre": "Empleo",
+      "categoria": "colaboradores",
+      "pregunta": "¿Cuál es la tasa de rotacion, Que cantidad hubo de nuevos trabajadores, Tasa de contratacion",
+      "unidades": [
+        "%",
+        "número",
+        "cantidad",
+        "empleados",
+        "tasa"
+      ],
+      "variantes": [
+        "rotación",
+        "empleos",
+        "empleo",
+        "nuevas",
+        "contrataciones",
+        "rotación",
+        "contratación",
+        "contratados"
+      ],
+      "contexto": [
+        "incremento",
+        "empleabilidad",
+        "empleos",
+        "tasa",
+        "creación empleo",
+        "contrataciones",
+        "rotación",
+        "contratación",
+        "empleos directos",
+        "permanentes",
+        "temporales",
+        "estrategia laboral",
+        "indice",
+        "rotación",
+        "401-1"
+      ],
+      "contexto_archivo": "colaboradores.txt"
+    },
+    {
+      "indicador": "Seguridad y salud (GRI 403-9)",
+      "nombre": "Seguridad y salud",
+      "categoria": "seguridad",
+      "pregunta": "¿Cuál es la tasa de accidentalidad y tienen normas de seguridad y salud en el trabajo SST",
+      "unidades": [
+        "tasa",
+        "número",
+        "accidentes",
+        "horas",
+        "h-h"
+      ],
+      "variantes": [
+        "seguridad",
+        "SST",
+        "accidentes",
+        "accidentabilidad",
+        "ISO 45001"
+      ],
+      "contexto": [
+        "tasa accidentes",
+        "frecuencia",
+        "SST",
+        "gravedad",
+        "cero accidentes",
+        "salud"
+      ],
+      "contexto_archivo": "seguridad.txt"
+    },
+    {
+      "indicador": "Proveedores locales (GRI 204-1)",
+      "nombre": "Proveedores locales",
+      "categoria": "proveedores",
+      "pregunta": "¿Cuál es la cantidad de proveedores nacionales o locales y cantidad de compras anuales",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "gasto"
+      ],
+      "variantes": [
+        "proveedor",
+        "proveedores",
+        "locales",
+        "local",
+        "pagos",
+        "gastos",
+        "anuales"
+      ],
+      "contexto": [
+        "compras",
+        "adquisiciones",
+        "proveedores locales"
+
+      ],
+      "contexto_archivo": "proveedores.txt"
+    },
+    {
+      "indicador": "Formación y capacitación (GRI 404-1)",
+      "nombre": "Formación y capacitación",
+      "categoria": "formacion",
+      "pregunta": "¿Cuál es la cantidad de horas de formacion de los trabajadores",
+      "unidades": [
+        "horas",
+        "h",
+        "horas/empleado",
+        "promedio",
+        "hrs"
+      ],
+      "variantes": [
+        "hrs",
+        "horas",
+        "empleados",
+        "formación",
+        "capacitación",
+        "entrenamiento",
+        "desarrollo",
+        "educación",
+        "curso",
+        "programas formación",
+        "horas de formación",
+        "certificación"
+      ],
+      "contexto": [
+        "formación",
+        "capacitación",
+        "entrenamiento",
+        "desarrollo",
+        "capacitaciones"
+      ],
+      "contexto_archivo": "formacion.txt"
+    }
+  ]
+  
+}

@@ -2,3 +2,5 @@ PyPDF2
 fuzzywuzzy
 python-Levenshtein
 openai
+pandas
+openpyxl

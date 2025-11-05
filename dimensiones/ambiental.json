@@ -1,0 +1,115 @@
+{
+  "AMBIENTAL": [
+    {
+      "indicador": "Emisiones GEI (GRI 305 -1/2/3)",
+      "nombre": "Emisiones GEI",
+      "categoria": "emisiones",
+      "pregunta": "¿Cuál fue la variación o reducción de emisiones de gases de efecto invernadero respecto al año anterior?",
+      "unidades": [
+        "tCO2e",
+        "tCO2-eq",
+        "CO2",
+        "toneladas",
+        "kg CO2"
+      ],
+      "variantes": [
+        "emisiones",
+        "CO2",
+        "CO²",
+        "dióxido de carbono",
+        "alcance 1",
+        "alcance 2",
+        "alcance 3",
+        "scope 1",
+        "scope 2",
+        "scope 3"
+      ],
+      "contexto": [
+        "Co2",
+        "emision",
+        "alcance",
+        "scope",
+        "zero"
+      ],
+      "contexto_archivo": "emisiones.txt"
+    },
+
+    {
+      "indicador": "Reducción de consumo energético (GRI 302-4)",
+      "nombre": "Reducción consumo energético",
+      "categoria": "energia",
+      "pregunta": "¿Cuál fue la reduccion del consumo energetico apara el año 2020",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "kWh",
+        "MWh",
+        "GJ"
+      ],
+      "variantes": [
+        "energía",
+        "kWh",
+        "megavatios"
+      ],
+      "contexto": [
+        "consumo",
+        "energía",
+        "kwh"
+
+      ],
+      "contexto_archivo": "energia.txt"
+    },
+    {
+      "indicador": "Consumo de agua (GRI 303-1)",
+      "nombre": "Consumo de agua",
+      "categoria": "agua",
+      "pregunta": "¿Cuál fue la reduccion del consumo de agua para el año 2020",
+      "unidades": [ "m3", "m³", "m^3", "metros cúbicos" ],
+      "variantes": [
+        "agua",
+        "m3"
+
+      ],
+      "contexto": [
+        "agua",
+        "m3",
+        "consumo"
+      ],
+      "contexto_archivo": "agua.txt"
+    },
+    {
+      "indicador": "Gestión de residuos (GRI 306-1)",
+      "nombre": "Gestión de residuos",
+      "categoria": "residuos",
+      "pregunta": "¿Cuál fue la reduccion de los residuos para el año 2020",
+      "unidades": [
+        "kg",
+        "toneladas",
+        "ton",
+        "t",
+        "%",
+        "porcentaje"
+      ],
+      "variantes": [
+        "residuos",
+        "desechos",
+        "reciclaje",
+        "valorización",
+        "aprovechamiento",
+        "aprovechable",
+        "residuos peligrosos",
+        "residuos no peligrosos",
+        "economía circular",
+        "reutilización"
+      ],
+      "contexto": [
+        "residuos",
+        "aprovechamiento",
+        "aprovechable",
+        "reutilizable",
+        "sólidos"
+      ],
+      "contexto_archivo": "residuos.txt"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "GOBERNANZA": [
+    {
+      "indicador": "Anticorrupción (GRI 205)",
+      "nombre": "Anticorrupción",
+      "categoria": "anticorrupcion",
+      "pregunta": "Colaboradores capacitados en anticirrupcion",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "empleados"
+      ],
+      "variantes": [
+        "anticorrupción",
+        "Antifraude",
+        "capacitación",
+        "formación",
+        "anti-corrupción",
+        "corrupción",
+        "ética",
+        "integridad",
+        "transparencia",
+        "compliance",
+        "cumplimiento",
+        "SARLAFT",
+        "SARAS",
+        "prevención lavado",
+        "conflicto interés",
+        "denuncia",
+        "canal ético"
+      ],
+      "contexto": [
+        "capacitados",
+        "capacitación",
+        "anticorrupción",
+        "políticas",
+        "evaluación",
+        "riesgos",
+        "código ética",
+        "ética"
+      ],
+      "contexto_archivo": "anticorrupcion.txt"
+    },
+    {
+      "indicador": "Ética y cumplimiento (GRI 206)",
+      "nombre": "Ética y cumplimiento",
+      "categoria": "etica",
+      "pregunta": "Colaboradores capacitados en etica",
+      "unidades": [
+        "existencia",
+        "nivel",
+        "auditoría"
+      ],
+      "variantes": [
+        "ética",
+        "código ética",
+        "compliance",
+        "cumplimiento",
+        "políticas",
+        "litigios",
+        "sanciones",
+        "multas",
+        "legal",
+        "normativo",
+        "control interno",
+        "auditoría"
+      ],
+      "contexto": [
+        "política",
+        "capacitación",
+        "monitoreo",
+        "reporte",
+        "sistema robusto"
+      ],
+      "contexto_archivo": "etica.txt"
+    },
+    {
+      "indicador": "Diversidad en órganos de gobierno (GRI 405-1)",
+      "nombre": "Diversidad órganos gobierno",
+      "categoria": "diversidad",
+      "pregunta": "Cual es el porcentaje de mujeres en junta directiva",
+      "unidades": [
+        "%",
+        "porcentaje",
+        "mujeres",
+        "minorías"
+      ],
+      "variantes": [
+        "mujeres",
+       "junta directiva",
+        "alta gerencia",
+        "directivos",
+        "directiva"
+      ],
+      "contexto": [
+        "juntas directivas",
+        "gerencia",
+        "política",
+        "programa",
+        "implementada"
+      ],
+      "contexto_archivo": "diversidad.txt"
+    },
+    {
+      "indicador": "Transparencia financiera (GRI 207)",
+      "nombre": "Transparencia financiera",
+      "categoria": "transparencia",
+      "pregunta": "Posen auditoria , informes auditados y certificados,  tienen controles internos",
+      "unidades": [
+        "nivel",
+        "reporte",
+        "auditoría"
+      ],
+      "variantes": [
+        "transparencia",
+        "divulgación financiera",
+        "información financiera",
+        "fiscal",
+        "tributario",
+        "auditoría",
+        "auditoría externa",
+        "informe integrado",
+        "reporte anual",
+        "estados financieros"
+      ],
+      "contexto": [
+        "divulgación",
+        "auditoría",
+        "informes",
+        "completos",
+        "integrados",
+        "externos"
+      ],
+      "contexto_archivo": "transparencia.txt"
+    }
+  ]
+}
